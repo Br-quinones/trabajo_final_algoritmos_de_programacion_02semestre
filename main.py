@@ -1,17 +1,15 @@
 import menu
 from the_matrix import MyTable
 
-my_table = MyTable(2,2)
+main_table = MyTable(8,2)
 while True:
-    my_table.see()
+    main_table.see()
 
-    ###
-    what_add = str(input("Que desea agregar (r/c): "))
+    what_add = input("Ingrese a agregar (r/c): ")
 
-    if what_add == "c":
-        my_table.add_col()
     if what_add == "r":
-        my_table.add_row()
+        main_table.add_row()
+    if what_add == "c":
+        main_table.add_col()
 
     menu.clean()
- 
