@@ -8,7 +8,13 @@ class MyTable():
         for col in range(size_x):
             self.my_table.add_column()
         for row in range(size_y):
-            self.my_table.add_row(f"{row}.row" + "a")
+            self.my_table.add_row()
 
-    def see_matrix(self):
+    def see(self):
         Console().print(self.my_table)
+
+    def add_col(self):
+        self.my_table.add_column()
+
+    def add_row(self):
+        self.my_table.add_row() 
