@@ -15,7 +15,7 @@ def heat_menu():
     heat_menu_table.add_column(justify="right",  ratio=1)
 
     heat_menu_table.add_row("F1: Load CSV", "F2: Save CSV", "f3: Exit")
-
+    
     Console().print(heat_menu_table)
     
 def commands_menu():
@@ -25,10 +25,9 @@ def commands_menu():
     commands_menu_rich.add_column(justify="center", ratio=1)
     commands_menu_rich.add_column(justify="right",  ratio=1)
 
-    commands_menu_rich.add_row("Use 'arrows' to move", "Use 'control + arrows' to add or remove column or row", "coming soon")
+    commands_menu_rich.add_row("Use 'arrows' to move", "Use 'control' to change to mode add or remove", "Use 'Enter' to input")
 
     Console().print(commands_menu_rich)
-
 
 def main_menu(matrix_to_print):
     line()

@@ -25,3 +25,10 @@ class MyTable():
     def add_col(self):
         for row in self.my_table:
             row.append("x")
+
+    def remove_row(self):
+        self.my_table.pop()
+
+    def remove_col(self):
+        for row in self.my_table:
+            row.pop()
