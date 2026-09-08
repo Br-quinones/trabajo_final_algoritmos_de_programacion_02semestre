@@ -23,7 +23,3 @@ while True:
     if key_pressed == "left":
         main_table.remove_col()
         time.sleep(0.20)
-
-    ###
-
-    menu.clean()

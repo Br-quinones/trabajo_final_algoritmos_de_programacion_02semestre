@@ -8,7 +8,7 @@ class MyTable():
     def convert_to_rich(self):
         self.my_table_rich = Table(show_header=False, show_lines=True)
 
-        for col in self.my_table:
+        for col in self.my_table[0]:
             self.my_table_rich.add_column()
         
         for row in self.my_table:
