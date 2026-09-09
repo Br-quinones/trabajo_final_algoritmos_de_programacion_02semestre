@@ -24,22 +24,36 @@ class MyTable():
             self.my_table[j][0] = str(cont)
             cont += 1
 
-    def convert_to_rich(self):
+    ### Mostrar la tabla en formato rich 
+    def see(self):
         self.my_table_rich = Table(show_header=False, show_lines=True)
 
         for col in self.my_table[0]:
             self.my_table_rich.add_column()
         
-        for row in self.my_table:
+        for row in self.my_table: 
             self.my_table_rich.add_row(*row)
 
-        return self.my_table_rich
+        Console().print(self.my_table_rich)
 
+    ### Entrada de datos a la tabla
+    def entry_procotol(self):
+        while True:
+            try:
+                axis_col = int(input("Ingrese la posicion en columnas: "))
+                axis_row = int(input("Ingrese la posicion en filas: "))
 
-    # Mostrar la tabla en formato rich 
-    def see(self):
-        Console().print(self.convert_to_rich())
-    
+                break
+            except:
+                print("-----------------")
+
+        data = str(input("Ingrese su dato a colocar en la tabla: "))
+
+        if axis_col != 0 and axis_row != 0:
+            if len(self.my_table) >= axis_row:
+                if len(self.my_table[0]) >= axis_col:
+                    self.my_table[(axis_row)][(axis_col)] = data
+
     ### Metodos para añadir filas y columnas
     def add_row(self):
         self.my_table.append([])

@@ -30,7 +30,7 @@ def main_menu(matrix_to_print):
     commands_menu_rich.add_column(justify="center", ratio=1)
     commands_menu_rich.add_column(justify="right",  ratio=1)
 
-    commands_menu_rich.add_row("Use 'arrows' to move", "Use 'control' to change to mode add or remove", "Use 'Enter' to input")
+    commands_menu_rich.add_row("Use 'arrows' to add or remove rows or columns", "Use 'control' to enter data", "....")
 
     Console().print(commands_menu_rich)
 

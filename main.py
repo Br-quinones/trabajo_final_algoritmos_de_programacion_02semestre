@@ -25,6 +25,8 @@ while True:
     if key_pressed == "left":
         main_table.remove_col()
 
+    if key_pressed == "ctrl":
+        main_table.entry_procotol()
 
     if key_pressed == "f3":
         sys.exit()
