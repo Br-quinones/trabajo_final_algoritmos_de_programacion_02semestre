@@ -42,11 +42,22 @@ class MyTable():
     
     ### Metodos para añadir filas y columnas
     def add_row(self):
-        self.my_table.append(["x" for cell in self.my_table[0]])
+        self.my_table.append([])
+
+        for current_cell in range(len(self.my_table[0])):
+            if current_cell == 0:
+                number_to_add = int(self.my_table[-2][0]) + 1
+                self.my_table[-1].append(str(number_to_add))
+            else:
+                self.my_table[-1].append("x")
  
     def add_col(self):
-        for row in self.my_table:
-            row.append("x")
+        for current_row in range(len(self.my_table)):
+            if current_row == 0:
+                number_to_add = int(self.my_table[0][-1]) + 1
+                self.my_table[current_row].append(str(number_to_add))
+            else:
+                self.my_table[current_row].append("x")
 
     ### Metodo para remover filas y columnas
     def remove_row(self):
