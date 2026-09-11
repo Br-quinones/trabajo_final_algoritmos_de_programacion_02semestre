@@ -77,7 +77,7 @@ class MyTable():
     def remove_row(self):
         if not len(self.my_table) <= 1:
             self.my_table.pop()
-
+ 
     def remove_col(self):
         if not len(self.my_table[0]) <= 1:
             for row in self.my_table:
