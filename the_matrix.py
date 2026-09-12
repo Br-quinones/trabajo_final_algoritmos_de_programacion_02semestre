@@ -1,5 +1,6 @@
 from rich.table import Table
 from rich.console import Console
+import commands
 
 class MyTable():
     def __init__(self, size_col, size_row):        
@@ -38,21 +39,26 @@ class MyTable():
 
     ### Entrada de datos a la tabla
     def entry_procotol(self):
-        while True:
-            try:
-                axis_col = int(input("Ingrese la posicion en columnas: "))
-                axis_row = int(input("Ingrese la posicion en filas: "))
-
-                break
-            except:
-                print("-----------------")
-
+        # Entrada de datos por el usuario
+        axis_row = input("Ingrese la posicion en filas: ").strip()
+        axis_col = input("Ingrese la posicion en columnas: ").strip()
         data = str(input("Ingrese su dato a colocar en la tabla: "))
 
-        if axis_col != 0 and axis_row != 0:
-            if len(self.my_table) >= axis_row:
-                if len(self.my_table[0]) >= axis_col:
-                    self.my_table[(axis_row)][(axis_col)] = data
+        # Proteccion al codigo
+        try:
+            axis_row, axis_col = int(axis_row), int(axis_col)
+        except:
+            return None
+        if axis_row == 0 or axis_col == 0:
+            return None
+        if len(self.my_table) < axis_row:
+            return None
+        if len(self.my_table[0]) < axis_col:
+            return None
+
+        # Si pasa todos los filtros
+        self.my_table[(axis_row)][(axis_col)] = data
+        commands.task_complete()
 
     ### Metodos para añadir filas y columnas
     def add_row(self):
