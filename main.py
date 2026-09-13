@@ -28,6 +28,8 @@ while True:
 
     if key_pressed == "shift":
         main_table.entry_procotol()
+    if key_pressed == "backspace":
+        main_table.__init__(8,8)
     if key_pressed == "esc":
         import sys
         the_csv.quick_saved_file()
@@ -56,10 +58,16 @@ while True:
     if key_pressed == "f2":
         while True:
             menu.print_menu_load_csv()
-
+            
+            commands.clean_buffer()
             key_pressed = keyboard.read_key()
             key_pressed.lower()
 
-
+            if key_pressed == "shift":
+                the_csv.slow_load_file()
+            if key_pressed == "space":
+                the_csv.quick_load_file()
+            if key_pressed == "esc":
+                break
         
     

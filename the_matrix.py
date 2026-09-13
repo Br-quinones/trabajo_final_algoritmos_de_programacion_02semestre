@@ -60,6 +60,11 @@ class MyTable():
         self.my_table[(axis_row)][(axis_col)] = data
         commands.task_complete()
 
+    ### reemplazar actual matrix completamente
+    def replace_table(self, change):
+        if type(change) == list:
+            self.my_table = change
+
     ### Metodos para añadir filas y columnas
     def add_row(self):
         self.my_table.append([])
