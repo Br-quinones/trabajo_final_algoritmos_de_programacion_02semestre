@@ -1,0 +1,43 @@
+name: Compilar y Lanzar
+
+on:
+  push:
+    tags:
+      - 'v*' # Se ejecutará solo cuando crees una versión que empiece con "v" (ej: v1.0)
+
+jobs:
+  build:
+    name: Compilando en ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+    - name: Descargar el código del repo
+      uses: actions/checkout@v4
+
+    - name: Configurar Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Instalar dependencias
+      run: |
+        pip install -r requirements.txt
+        pip install pyinstaller
+
+    - name: Compilar en Windows
+      if: matrix.os == 'windows-latest'
+      run: pyinstaller --onefile --name matriz_windows main.py
+
+    - name: Compilar en Linux o macOS
+      if: matrix.os != 'windows-latest'
+      run: pyinstaller --onefile --name matriz_${{ matrix.os }} main.py
+
+    - name: Subir binario a GitHub Releases
+      uses: softprops/action-gh-release@v2
+      with:
+        files: dist/*
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
