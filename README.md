@@ -1,5 +1,3 @@
-Para ejecutar:
-
 Linux: 
 cd /carpeta_donde_se_descargo
 chmod +x matriz_ubuntu-latest
