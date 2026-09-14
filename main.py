@@ -5,6 +5,7 @@ import keyboard
 import time 
 import menu
 
+the_csv.create_path()
 main_table = matrix_base
 
 while True:

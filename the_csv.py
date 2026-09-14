@@ -5,6 +5,9 @@ import csv
 
 matrix_base = MyTable(8, 8)
 
+def create_path():
+     pathlib.Path("saved").mkdir(parents=True, exist_ok=True)
+     
 #### Cargar archivos 
 def slow_load_file():
      try: 
