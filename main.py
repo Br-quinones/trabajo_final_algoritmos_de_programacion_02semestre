@@ -24,13 +24,13 @@ while True:
 
     key_pressed = key_pressed.name.lower()
 
-    if key_pressed == "down":
+    if key_pressed in ["down", "flecha abajo", "abajo"]:
         main_table.add_row()
-    if key_pressed == "right":
-        main_table.add_col()####
-    if key_pressed == "up":
+    if key_pressed in ["right", "flecha derecha", "derecha"]:
+        main_table.add_col()
+    if key_pressed in ["up", "flecha arriba", "arriba"]:
         main_table.remove_row()
-    if key_pressed == "left":
+    if key_pressed in ["left", "flecha izquierda", "izquierda"]:
         main_table.remove_col()
 
     if key_pressed == "shift":
