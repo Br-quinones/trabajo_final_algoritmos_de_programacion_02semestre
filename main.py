@@ -33,11 +33,11 @@ while True:
     if key_pressed in ["left", "flecha izquierda", "izquierda"]:
         main_table.remove_col()
 
-    if key_pressed == "shift":
+    if key_pressed in ["shift", "mayúsculas", "mayusculas", "shift izquierdo", "shift derecho", "mayús", "mayus"]:
         main_table.entry_procotol()
-    if key_pressed == "backspace":
+    if key_pressed in ["backspace", "retroceso"]:
         main_table.__init__(8,8)
-    if key_pressed == "esc":
+    if key_pressed in ["esc", "escape"]:
         import sys
         the_csv.quick_saved_file()
         sys.exit()
@@ -61,11 +61,11 @@ while True:
 
             key_pressed = key_pressed.name.lower()
 
-            if key_pressed == "shift":
+            if key_pressed in ["shift", "mayúsculas", "mayusculas", "shift izquierdo", "shift derecho", "mayús", "mayus"]:
                 the_csv.slow_saved_file()
-            if key_pressed == "space":
+            if key_pressed in ["space", "espacio", "barra espaciadora"]:
                 the_csv.quick_saved_file()
-            if key_pressed == "esc":
+            if key_pressed in ["esc", "escape"]:
                 break
 
     if key_pressed == "f2":
@@ -86,11 +86,10 @@ while True:
 
             key_pressed = key_pressed.name.lower()
 
-            if key_pressed == "shift":
+            if key_pressed in ["shift", "mayúsculas", "mayusculas", "shift izquierdo", "shift derecho", "mayús", "mayus"]:
                 the_csv.slow_load_file()
-            if key_pressed == "space":
+            if key_pressed in ["space", "espacio", "barra espaciadora"]:
                 the_csv.quick_load_file()
-            if key_pressed == "esc":
+            if key_pressed in ["esc", "escape"]:
                 break
-
 
