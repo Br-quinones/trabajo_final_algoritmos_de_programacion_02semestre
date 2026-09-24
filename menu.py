@@ -1,10 +1,11 @@
 from rich.console import Console
 from rich.table import Table
 from pathlib import Path
+import commands
 
 def print_main_menu(matrix_to_print):
-    ######## Limpiar pantalla y definir variable 
-    Console().clear()
+    ######## Limpiar pantalla y definir variable
+    commands.clean_display()
     line_rule = Console().rule
 
     ######## Menu superior (Barra de tareas)
@@ -18,7 +19,7 @@ def print_main_menu(matrix_to_print):
     heat_menu_table.add_row("F1: Save CSV", "F2: Load CSV", "ESC: Exit")
 
     Console().print(heat_menu_table)
-    
+
     ######## Mostrar Tabla principal
     line_rule(style="White")
     matrix_to_print.see()
@@ -36,8 +37,8 @@ def print_main_menu(matrix_to_print):
     Console().print(commands_menu_rich)
 
 def print_menu_save_csv():
-    ######## Limpiar pantalla y definir variable 
-    Console().clear()
+    ######## Limpiar pantalla y definir variable
+    commands.clean_display()
     line_rule = Console().rule
 
     ######## Menu superior (El titulo)
@@ -67,8 +68,8 @@ def print_menu_save_csv():
     Console().print(commands_menu_rich)
 
 def print_menu_load_csv():
-    ######## Limpiar pantalla y definir variable 
-    Console().clear()
+    ######## Limpiar pantalla y definir variable
+    commands.clean_display()
     line_rule = Console().rule
 
     ######## Menu superior (El titulo)
@@ -84,7 +85,7 @@ def print_menu_load_csv():
     ######## Menu del medio (Archivos existentes)
     line_rule(style="White")
     print_list_csv()
- 
+
     ######## Menu inferior (Area de comandos)
     line_rule(style="White")
     commands_menu_rich = Table(show_header=False, expand=True)
@@ -105,4 +106,3 @@ def print_list_csv():
         for item in the_path.iterdir():
             print(f"{cont}. {item.name}")
             cont += 1
-    

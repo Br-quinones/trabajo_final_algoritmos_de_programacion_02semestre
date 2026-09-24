@@ -2,21 +2,29 @@ from the_csv import matrix_base
 import commands
 import the_csv
 import keyboard
-import time 
+import time
 import menu
 
 the_csv.create_path()
 main_table = matrix_base
 
 while True:
-    time.sleep(0.05)
+    ### Imprimir de forma limpia el tablero
     menu.print_main_menu(main_table)
-    time.sleep(0.25)
-    
-    #### Captura de tecla 
+    time.sleep(0.05)
+
+    #### Captura de tecla
+    # Una limpiada de buffer
     commands.clean_buffer()
-    key_pressed = keyboard.read_key()
-    key_pressed = key_pressed.lower()
+
+    # Captamos la tecla entrada
+    key_pressed = keyboard.read_event()
+
+    # Verificamos
+    if key_pressed.event_type == keyboard.KEY_DOWN:
+        continue
+
+    key_pressed = key_pressed.name.lower()
 
     if key_pressed == "down":
         main_table.add_row()
@@ -35,19 +43,26 @@ while True:
         import sys
         the_csv.quick_saved_file()
         sys.exit()
-        
+
     ### Guardar y Cargar archivos
     if key_pressed == "f1":
         while True:
-            #### Mostar el menu suavemente
+            ### Imprimir de forma limpia el tablero
+            menu.print_menu_load_csv()
             time.sleep(0.05)
-            menu.print_menu_save_csv()
-            time.sleep(0.25)
 
-            #### Captura de tecla 
+            #### Captura de tecla
+            # Una limpiada de buffer
             commands.clean_buffer()
-            key_pressed = keyboard.read_key()
-            key_pressed.lower()
+
+            # Captamos la tecla entrada
+            key_pressed = keyboard.read_event()
+
+            # Verificamos
+            if key_pressed.event_type == keyboard.KEY_DOWN:
+                continue
+
+            key_pressed = key_pressed.name.lower()
 
             if key_pressed == "shift":
                 the_csv.slow_saved_file()
@@ -58,11 +73,22 @@ while True:
 
     if key_pressed == "f2":
         while True:
+            ### Imprimir de forma limpia el tablero
             menu.print_menu_load_csv()
-            
+            time.sleep(0.05)
+
+            #### Captura de tecla
+            # Una limpiada de buffer
             commands.clean_buffer()
-            key_pressed = keyboard.read_key()
-            key_pressed.lower()
+
+            # Captamos la tecla entrada
+            key_pressed = keyboard.read_event()
+
+            # Verificamos
+            if key_pressed.event_type == keyboard.KEY_DOWN:
+                continue
+
+            key_pressed = key_pressed.name.lower()
 
             if key_pressed == "shift":
                 the_csv.slow_load_file()
@@ -70,5 +96,5 @@ while True:
                 the_csv.quick_load_file()
             if key_pressed == "esc":
                 break
-        
-    
+
+
