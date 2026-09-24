@@ -2,7 +2,6 @@ from the_csv import matrix_base
 import commands
 import the_csv
 import keyboard
-import time
 import menu
 
 the_csv.create_path()
@@ -11,7 +10,6 @@ main_table = matrix_base
 while True:
     ### Imprimir de forma limpia el tablero
     menu.print_main_menu(main_table)
-    time.sleep(0.05)
 
     #### Captura de tecla
     # Una limpiada de buffer
@@ -21,7 +19,7 @@ while True:
     key_pressed = keyboard.read_event()
 
     # Verificamos
-    if key_pressed.event_type == keyboard.KEY_DOWN:
+    if key_pressed.event_type == keyboard.KEY_UP:
         continue
 
     key_pressed = key_pressed.name.lower()
@@ -49,7 +47,6 @@ while True:
         while True:
             ### Imprimir de forma limpia el tablero
             menu.print_menu_load_csv()
-            time.sleep(0.05)
 
             #### Captura de tecla
             # Una limpiada de buffer
@@ -59,7 +56,7 @@ while True:
             key_pressed = keyboard.read_event()
 
             # Verificamos
-            if key_pressed.event_type == keyboard.KEY_DOWN:
+            if key_pressed.event_type == keyboard.KEY_UP:
                 continue
 
             key_pressed = key_pressed.name.lower()
@@ -75,7 +72,6 @@ while True:
         while True:
             ### Imprimir de forma limpia el tablero
             menu.print_menu_load_csv()
-            time.sleep(0.05)
 
             #### Captura de tecla
             # Una limpiada de buffer
@@ -85,7 +81,7 @@ while True:
             key_pressed = keyboard.read_event()
 
             # Verificamos
-            if key_pressed.event_type == keyboard.KEY_DOWN:
+            if key_pressed.event_type == keyboard.KEY_UP:
                 continue
 
             key_pressed = key_pressed.name.lower()
