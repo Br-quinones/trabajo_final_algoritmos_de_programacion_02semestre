@@ -5,7 +5,7 @@ Linux:
 
 En linux se usa Sudo por que se necesita acceder al teclado.
 
-<img width="1920" height="1080" alt="linux" src="https://github.com/user-attachments/assets/a33a6dbf-36d8-43ca-add9-6d44f480b238" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e77ec266-c7a9-49cd-a235-9afeb1c82df9" />
 
 Windows: 
 1. cd /carpeta_donde_se_descargo.
