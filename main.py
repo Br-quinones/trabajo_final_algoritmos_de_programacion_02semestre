@@ -12,17 +12,19 @@ while True:
     menu.print_main_menu(main_table)
 
     #### Captura de tecla
-    # Una limpiada de buffer
-    commands.clean_buffer()
+    while True:
+        # Una limpiada de buffer
+        commands.clean_buffer()
 
-    # Captamos la tecla entrada
-    key_pressed = keyboard.read_event()
+        # Captamos la tecla entrada
+        key_pressed = keyboard.read_event()
 
-    # Verificamos
-    if key_pressed.event_type == keyboard.KEY_UP:
-        continue
-
-    key_pressed = key_pressed.name.lower()
+        # Verificamosf
+        if key_pressed.event_type == keyboard.KEY_UP:
+            continue
+        else:
+            key_pressed = key_pressed.name.lower()
+            break
 
     if key_pressed in ["down", "flecha abajo", "abajo"]:
         main_table.add_row()
@@ -92,4 +94,3 @@ while True:
                 the_csv.quick_load_file()
             if key_pressed in ["esc", "escape"]:
                 break
-

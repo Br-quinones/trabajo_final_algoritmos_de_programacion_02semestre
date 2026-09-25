@@ -104,5 +104,5 @@ def print_list_csv():
     if the_path.exists() and the_path.is_dir():
         cont = 0
         for item in the_path.iterdir():
-            print(f"{cont}. {item.name}")
+            print(f"File {cont}: {item.name[0:-4:1]}")
             cont += 1

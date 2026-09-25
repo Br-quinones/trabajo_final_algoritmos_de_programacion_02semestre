@@ -17,6 +17,6 @@ def clean_display():
     else:
         os.system("clear")
 
-def task_complete():
-    print("Complete!")
+def task_complete(string = "Complete!") :
+    print(string)
     time.sleep(0.35)

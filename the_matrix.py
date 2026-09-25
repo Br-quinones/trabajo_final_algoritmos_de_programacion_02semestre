@@ -3,7 +3,7 @@ from rich.console import Console
 import commands
 
 class MyTable():
-    def __init__(self, size_col, size_row):        
+    def __init__(self, size_col, size_row):
         #### Creacion
         self.my_table = []
 
@@ -14,7 +14,7 @@ class MyTable():
             for cell in range(size_col):
                 col.append("x")
 
-        ### Numeracion 
+        ### Numeracion
         cont = 0
         for i in range(len(self.my_table[0])):
             self.my_table[0][i] = str(cont)
@@ -25,17 +25,17 @@ class MyTable():
             self.my_table[j][0] = str(cont)
             cont += 1
 
-    ### Mostrar la tabla en formato rich 
+    ### Mostrar la tabla en formato rich
     def see(self):
         self.my_table_rich = Table(show_header=False, show_lines=True)
 
         for col in self.my_table[0]:
-            self.my_table_rich.add_column()
-        
-        for row in self.my_table: 
+            self.my_table_rich.add_column(justify="center")
+
+        for row in self.my_table:
             self.my_table_rich.add_row(*row)
 
-        Console().print(self.my_table_rich)
+        Console().print(self.my_table_rich, justify="center")
 
     ### Entrada de datos a la tabla
     def entry_procotol(self):
@@ -75,7 +75,7 @@ class MyTable():
                 self.my_table[-1].append(str(number_to_add))
             else:
                 self.my_table[-1].append("x")
- 
+
     def add_col(self):
         for current_row in range(len(self.my_table)):
             if current_row == 0:
@@ -88,8 +88,21 @@ class MyTable():
     def remove_row(self):
         if not len(self.my_table) <= 1:
             self.my_table.pop()
- 
+
     def remove_col(self):
         if not len(self.my_table[0]) <= 1:
             for row in self.my_table:
                 row.pop()
+
+    ### Metodo unico para protocolos de seguridad al importar tablas
+
+    def apply_numeration(self):
+        cont = 0
+        for i in range(len(self.my_table[0])):
+            self.my_table[0][i] = str(cont)
+            cont += 1
+
+        cont = 0
+        for j in range(len(self.my_table)):
+            self.my_table[j][0] = str(cont)
+            cont += 1
