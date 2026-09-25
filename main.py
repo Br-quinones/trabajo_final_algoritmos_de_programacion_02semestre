@@ -19,7 +19,7 @@ while True:
         # Captamos la tecla entrada
         key_pressed = keyboard.read_event()
 
-        # Verificamosf
+        # Verificamos
         if key_pressed.event_type == keyboard.KEY_UP:
             continue
         else:
@@ -50,18 +50,19 @@ while True:
             ### Imprimir de forma limpia el tablero
             menu.print_menu_load_csv()
 
-            #### Captura de tecla
-            # Una limpiada de buffer
-            commands.clean_buffer()
+            while True:
+                # Una limpiada de buffer
+                commands.clean_buffer()
 
-            # Captamos la tecla entrada
-            key_pressed = keyboard.read_event()
+                # Captamos la tecla entrada
+                key_pressed = keyboard.read_event()
 
-            # Verificamos
-            if key_pressed.event_type == keyboard.KEY_UP:
-                continue
-
-            key_pressed = key_pressed.name.lower()
+                # Verificamos
+                if key_pressed.event_type == keyboard.KEY_UP:
+                    continue
+                else:
+                    key_pressed = key_pressed.name.lower()
+                    break
 
             if key_pressed in ["shift", "mayúsculas", "mayusculas", "shift izquierdo", "shift derecho", "mayús", "mayus"]:
                 the_csv.slow_saved_file()
@@ -72,21 +73,22 @@ while True:
 
     if key_pressed == "f2":
         while True:
-            ### Imprimir de forma limpia el tablero
+            ### Imprimir el tablero
             menu.print_menu_load_csv()
 
-            #### Captura de tecla
-            # Una limpiada de buffer
-            commands.clean_buffer()
+            while True:
+                # Una limpiada de buffer
+                commands.clean_buffer()
 
-            # Captamos la tecla entrada
-            key_pressed = keyboard.read_event()
+                # Captamos la tecla entrada
+                key_pressed = keyboard.read_event()
 
-            # Verificamos
-            if key_pressed.event_type == keyboard.KEY_UP:
-                continue
-
-            key_pressed = key_pressed.name.lower()
+                # Verificamos
+                if key_pressed.event_type == keyboard.KEY_UP:
+                    continue
+                else:
+                    key_pressed = key_pressed.name.lower()
+                    break
 
             if key_pressed in ["shift", "mayúsculas", "mayusculas", "shift izquierdo", "shift derecho", "mayús", "mayus"]:
                 the_csv.slow_load_file()
